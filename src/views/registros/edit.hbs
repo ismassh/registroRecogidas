@@ -1,0 +1,77 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">Editando un registro</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/edit{{registro.id}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="tienda" class="input-group-text">Tienda</label>
+                            <input type="text" class="form-control" name="tienda" value="{{registros.tienda}}"
+                                id="tienda" placeholder="Ejemplo: Amazon" autofocus>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="articulo" class="input-group-text">SKU Eurowin</label>
+                            <input type="text" class="form-control" name="articulo" value="{{registros.tienda}}"
+                                id="articulo">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="referencia" class="input-group-text">Referencia</label>
+                            <input type="text" class="form-control" name="referencia" value="{{registros.referencia}}"
+                                id="referencia" placeholder="Nº de pedido">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="agencia" class="input-group-text">Agencia de Transportes</label>
+                            <input type="text" class="form-control" name="agencia" value="{{registros.agencia}}"
+                                id="agencia">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="numero_envio" class="input-group-text">Nº de envío</label>
+                            <input type="text" class="form-control" name="numero_envio"
+                                value="{{registros.numero_envio}}" id="numero_envio">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="fecha_creacion" class="input-group-text">Fecha de creación</label>
+                            <input type="text" class="form-control" name="fecha_creacion"
+                                value="{{registros.fecha_creacion}}" id="fecha_creacion">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="motivo" class="input-group-text">Motivo</label>
+                            <input type="text" class="form-control" name="motivo" value="{{registros.motivo}}"
+                                id="motivo">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="fecha_recepcion" class="input-group-text">Fecha de recepción</label>
+                            <input type="text" class="form-control" name="fecha_recepcion"
+                                value="{{registros.fecha_recepcion}}" id="fecha_recepcion">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="estado" class="input-group-text">Estado del artículo</label>
+                            <input type="text" class="form-control" name="estado" value="{{registros.estado}}"
+                                id="estado">
+
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="observaciones" class="input-group-text">Observaciones</label>
+                            <input type="text" class="form-control" name="observaciones"
+                                value="{{registros.observaciones}}" id="observaciones">
+
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
