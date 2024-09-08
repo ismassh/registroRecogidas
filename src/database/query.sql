@@ -1,6 +1,6 @@
-CREATE DATABASE registro;
+CREATE DATABASE registros_recogidas;
 
-USE registro;
+USE registros_recogidas;
 
 CREATE TABLE registros(
     id INT AUTO_INCREMENT PRIMARY KEY,
