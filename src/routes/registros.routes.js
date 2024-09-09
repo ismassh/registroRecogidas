@@ -52,4 +52,51 @@ router.get('/list', async (req, res) => {
     }
 })
 
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [registro] = await pool.query('SELECT * FROM registros WHERE id = ?', [id]);
+        const registroEdit = registro[0];
+        res.render('registros/edit', { registro: registroEdit });
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+router.post('/edit/:id', async (req, res) => {
+    try {
+        const { tienda,
+            articulo,
+            referencia,
+            agencia,
+            numero_envio,
+            fecha_creacion,
+            motivo,
+            fecha_recepcion,
+            estado,
+            observaciones } = req.body;
+
+        const { id } = req.params;
+
+        const editRegistro = {
+            tienda,
+            articulo,
+            referencia,
+            agencia,
+            numero_envio,
+            fecha_creacion,
+            motivo,
+            fecha_recepcion,
+            estado,
+            observaciones
+        };
+        await pool.query('UPDATE registros SET ? WHERE id = ?', [editRegistro, id]);
+        res.redirect('/list');
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
 export default router;
