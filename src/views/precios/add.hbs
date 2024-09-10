@@ -1,0 +1,100 @@
+<style>
+    /* Eliminar las flechas de los input type number del formulario */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<div class="container mt-5">
+    <header>
+        <h1 class="mb-4">Añadir Productos Nuevos</h1>
+    </header>
+    <main>
+        <!-- El formulario se procesa mediante JS -->
+        <form id="product-form" class="container mt-5">
+
+            <!-- Primera fila: -->
+            <div class="row mb-3 text-center">
+                <div class="col-md-3">
+                    <label for="product-type" class="form-label">Familia:</label>
+                    <select name="tipo-producto" id="tipo-producto" class="form-select">
+                        <option value="pae">PAE</option>
+                        <option value="electro">Electrónica, Informática y Gran Electro</option>
+                        <option value="bricolaje">Bricolaje y Herramientas</option>
+                        <option value="accesorios-tech">Accesorios Tecnología y Electrónica</option>
+                        <option value="belleza-salud">Belleza y Salud</option>
+                        <option value="deportes-y-aire-libre">Deporte y Aire Libre</option>
+                        <!-- <option value="lavadoras">Lavadoras</option>
+                            <option value="lavavajillas">Lavavajillas</option>
+                            <option value="secadoras">Secadoras</option> -->
+
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="marca" class="form-label">Marca:</label>
+
+                    <input type="text" id="marca" name="marca" required class="form-control text-center"
+                        placeholder="Ejemplo: SAMSUNG">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="ewin" class="form-label">EWIN:</label>
+                    <input type="text" id="ewin" name="ewin" required placeholder="SKU Eurowin"
+                        class="form-control text-center">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="asin" class="form-label">ASIN:</label>
+                    <input type="text" id="asin" name="asin" class="form-control"
+                        placeholder="Código del producto en Amazon">
+                </div>
+            </div>
+
+            <!-- Este campo se enfatiza, ya que es muy importante que lo rellenen correctamente.
+                 Por este motivo, lo dejamos en el centro, para que se fijen bien -->
+            <div class="row mb-3 justify-content-center text-center">
+                <div class="col-md-3">
+                    <label for="costo" class="form-label">Tarifa de compra Eurowin:</label>
+                    <input type="text" id="costo" name="costo"
+                        class="form-control text-center border-3 border-opacity-50 border-warning">
+                    <div id="costWarning" class="form-text">Comprobar que el coste es correcto.</div>
+                </div>
+            </div>
+
+            <!-- Segunda fila: -->
+            <div class="row mb-3 text-center">
+                <div class="col-md-3">
+                    <label for="peso" class="form-label">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" required class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="alto" class="form-label">Alto (cm):</label>
+                    <input type="number" id="alto" name="alto" required class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="ancho" class="form-label">Ancho (cm):</label>
+                    <input type="number" id="ancho" name="ancho" required class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="longitud" class="form-label">Largo (cm):</label>
+                    <input type="number" id="longitud" name="longitud" required class="form-control">
+                </div>
+            </div>
+
+            <!-- Botones de guardar y reset -->
+            <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-warning ms-4">Reset</button>
+            </div>
+
+        </form>
+
+    </main>
+
+</div>

@@ -1,0 +1,51 @@
+<div class="container mt-5"></div>
+<h1 class="text-center">Calculadora Precios Markets</h1>
+
+<div id="products-list" class="row mt-4">
+
+    <!-- Tenemos 4 elementos de tipo card, para mostrar hasta 4 productos a la vez -->
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Producto 1</h5>
+                <input type="text" id="sku1" class="form-control mb-3" placeholder="Introduce el SKU">
+                <button class="btn btn-primary" onclick="fetchProductDetails('sku1', 'result1')">Buscar</button>
+                <div id="result1" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Producto 2</h5>
+                <input type="text" id="sku2" class="form-control mb-3" placeholder="Introduce el SKU">
+                <button class="btn btn-primary" onclick="fetchProductDetails('sku2', 'result2')">Buscar</button>
+                <div id="result2" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Producto 3</h5>
+                <input type="text" id="sku3" class="form-control mb-3" placeholder="Introduce el SKU">
+                <button class="btn btn-primary" onclick="fetchProductDetails('sku3', 'result3')">Buscar</button>
+                <div id="result3" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Producto 4</h5>
+                <input type="text" id="sku4" class="form-control mb-3" placeholder="Introduce el SKU">
+                <button class="btn btn-primary" onclick="fetchProductDetails('sku4', 'result4')">Buscar</button>
+                <div id="result4" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -4,15 +4,14 @@ USE registros_recogidas;
 
 CREATE TABLE registros(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    tienda VARCHAR(20) NOT NULL,
-    articulo VARCHAR(20) NOT NULL,
-    referencia VARCHAR(40) NOT NULL,
+    tienda VARCHAR(30) NOT NULL,
+    articulo VARCHAR(30) NOT NULL,
+    referencia VARCHAR(30) NOT NULL,
     agencia VARCHAR(20) NOT NULL,
     numero_envio VARCHAR(40) NOT NULL,
-    fecha_creacion DATE,
-    motivo VARCHAR(50),
-    fecha_recepcion DATE, 
-    estado VARCHAR(30),
+    fecha_creacion VARCHAR(20),
+    motivo VARCHAR(60),
+    fecha_recepcion VARCHAR(20), 
     observaciones VARCHAR(90)
 );
 

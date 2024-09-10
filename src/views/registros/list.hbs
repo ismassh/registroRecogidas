@@ -1,51 +1,55 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row mt-5">
-        <h3 class="text-center text-uppercase">Registros Guardados</h3>
+        <h3 class="text-center text-uppercase">Recogidas Creadas</h3>
         {{#if registros}}
-        <table class="table text-center">
-            <thead>
-                <tr class="table-dark">
-                    <th>TIENDA</th>
-                    <th>ARTICULO</th>
-                    <th>REFERENCIA</th>
-                    <th>AGENCIA</th>
-                    <th>NUMERO DE ENVIO</th>
-                    <th>FECHA CREACION</th>
-                    <th>MOTIVO</th>
-                    <th>FECHA RECEPCION</th>
-                    <th>ESTADO</th>
-                    <th>OBSERVACIONES</th>
-                    <th colspan="2">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each registros}}
-                <tr>
-                    <td>{{tienda}}</td>
-                    <td>{{articulo}}</td>
-                    <td>{{referencia}}</td>
-                    <td>{{agencia}}</td>
-                    <td>{{numero_envio}}</td>
-                    <td>{{fecha_creacion}}</td>
-                    <td>{{motivo}}</td>
-                    <td>{{fecha_recepcion}}</td>
-                    <td>{{estado}}</td>
-                    <td>{{observaciones}}</td>
-                    <td colspan="2">
-                        <div class="d-flex gap-2 justify-content-center">
-                            <a href="/edit/{{id}}" class="btn btn-warning">Editar</a>
-                            <a href="/delete/{{id}}" class="btn btn-danger">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-            <tfoot>
-                <tr class="table-dark">
-                    <td colspan="14">Registro de Recogidas</td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped w-100">
+                <thead class="text-center">
+                    <tr class="table-dark">
+                        <th>TIENDA</th>
+                        <th>ARTICULO</th>
+                        <th>REFERENCIA</th>
+                        <th>AGENCIA</th>
+                        <th>NUMERO DE ENVIO</th>
+                        <th>FECHA CREACION</th>
+                        <th>MOTIVO</th>
+                        <th>FECHA RECEPCION</th>
+                        <th>OBSERVACIONES</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each registros}}
+                    <tr class="text-center">
+                        <td>{{tienda}}</td>
+                        <td>{{articulo}}</td>
+                        <td>{{referencia}}</td>
+                        <td>{{agencia}}</td>
+                        <td>{{numero_envio}}</td>
+                        <td>{{fecha_creacion}}</td>
+                        <td>{{motivo}}</td>
+                        <td>{{fecha_recepcion}}</td>
+                        <td>{{observaciones}}</td>
+                        <td colspan="2">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a href="/edit/{{id}}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="/delete/{{id}}" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot class="text-center">
+                    {{!-- <tr class="table-dark">
+                        <td colspan="13">Registro de Recogidas</td>
+                    </tr> --}}
+                </tfoot>
+            </table>
+        </div>
         {{else}}
         <div class="card text-center mx-auto" style="width: 350px;">
             <div class="card-header">

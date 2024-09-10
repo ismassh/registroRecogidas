@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url';
 import registrosRoutes from './routes/registros.routes.js';
+import preciosRoutes from './routes/precios.routes.js';
 
 // Inicio de variables
 const app = express();
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(registrosRoutes);
+app.use(preciosRoutes);
 
 // Archivos públicos
 app.use(express.static(join(__dirname, 'public')));
