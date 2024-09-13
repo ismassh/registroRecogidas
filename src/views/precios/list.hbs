@@ -1,51 +1,65 @@
-<div class="container mt-5"></div>
-<h1 class="text-center">Calculadora Precios Markets</h1>
-
-<div id="products-list" class="row mt-4">
-
-    <!-- Tenemos 4 elementos de tipo card, para mostrar hasta 4 productos a la vez -->
-    <div class="col-md-6 mb-4">
-        <div class="card">
+<div class="container-fluid">
+    <div class="row mt-5">
+        <h3 class="text-center text-uppercase">Productos Añadidos</h3>
+        {{#if productos}}
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped w-100">
+                <thead class="text-center">
+                    <tr class="table-dark">
+                        <th>FAMILIA</th>
+                        <th>SKU EUROWIN</th>
+                        <th>TARIFA EUROWIN</th>
+                        <th>AGENCIA</th>
+                        <th>PESO (Kg)</th>
+                        <th>ALTO (Cm)</th>
+                        <th>ANCHO (Cm)</th>
+                        <th>LONGITUD (Cm)</th>
+                        <th>FECHA CREACION</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each productos}}
+                    <tr class="text-center">
+                        <td>{{familia}}</td>
+                        <td>{{sku}}</td>
+                        <td>{{tarifa_ewin}}</td>
+                        <td>{{agencia}}</td>
+                        <td>{{peso}}</td>
+                        <td>{{alto}}</td>
+                        <td>{{ancho}}</td>
+                        <td>{{longitud}}</td>
+                        <td>{{created_at}}</td>
+                        <td colspan="2">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a href="/edit/{{id}}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="/delete/{{id}}" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot class="text-center">
+                    {{!-- <tr class="table-dark">
+                        <td colspan="10">Registro de Productos</td>
+                    </tr> --}}
+                </tfoot>
+            </table>
+        </div>
+        {{else}}
+        <div class="card text-center mx-auto" style="width: 350px;">
+            <div class="card-header">
+                <h3>No hay productos registrados</h3>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Producto 1</h5>
-                <input type="text" id="sku1" class="form-control mb-3" placeholder="Introduce el SKU">
-                <button class="btn btn-primary" onclick="fetchProductDetails('sku1', 'result1')">Buscar</button>
-                <div id="result1" class="mt-3"></div>
+                <p>Pulsa este botón para añadir un nuevo producto.</p>
+                <a href="/precios/add" class="btn btn-primary">Añadir Producto</a>
             </div>
         </div>
+        {{/if}}
     </div>
-
-    <div class="col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Producto 2</h5>
-                <input type="text" id="sku2" class="form-control mb-3" placeholder="Introduce el SKU">
-                <button class="btn btn-primary" onclick="fetchProductDetails('sku2', 'result2')">Buscar</button>
-                <div id="result2" class="mt-3"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Producto 3</h5>
-                <input type="text" id="sku3" class="form-control mb-3" placeholder="Introduce el SKU">
-                <button class="btn btn-primary" onclick="fetchProductDetails('sku3', 'result3')">Buscar</button>
-                <div id="result3" class="mt-3"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Producto 4</h5>
-                <input type="text" id="sku4" class="form-control mb-3" placeholder="Introduce el SKU">
-                <button class="btn btn-primary" onclick="fetchProductDetails('sku4', 'result4')">Buscar</button>
-                <div id="result4" class="mt-3"></div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
