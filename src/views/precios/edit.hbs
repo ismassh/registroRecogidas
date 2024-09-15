@@ -1,0 +1,62 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto w-50">
+            <div class="card text-center w-100">
+                <div class="card-header">
+                    <h3 class="text-uppercase">Editando {{producto.sku}}</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/precios/edit/{{producto.id}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="familia" class="input-group-text w-50">Familia</label>
+                            <select name="familia" class="form-select">
+                                <option value="pae" selected>PAE</option>
+                                <option value="electro">Electrónica, Informática y Gran Electro</option>
+                                <option value="bricolaje">Bricolaje y Herramientas</option>
+                                <option value="accesorios-tech">Accesorios Tecnología y Electrónica</option>
+                                <option value="belleza-salud">Belleza y Salud</option>
+                                <option value="deportes-aire-libre">Deporte y Aire Libre</option>
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="sku" class="input-group-text w-50">SKU Eurowin</label>
+                            <input type="text" class="form-control" name="sku" id="sku" value="{{producto.sku}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="tarifa_ewin" class="input-group-text w-50">Tarifa Eurowin</label>
+                            <input type="text" class="form-control" name="tarifa_ewin" id="tarifa-ewin"
+                                value="{{producto.tarifa_ewin}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="agencia" class="input-group-text w-50">Agencia de Transportes</label>
+                            <select class="form-select" aria-label="Disabled select example" disabled>
+                                <option selected>CTT Express</option>
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="peso" class="input-group-text w-50">Peso en Kg</label>
+                            <input type="number" class="form-control" name="peso" id="peso" value="{{producto.peso}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="alto" class="input-group-text w-50">Altura en Cm</label>
+                            <input type="text" class="form-control" name="alto" id="alto" value="{{producto.alto}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="ancho" class="input-group-text w-50">Ancho en Cm</label>
+                            <input type="number" class="form-control" name="ancho" id="ancho"
+                                value="{{producto.ancho}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="longitud" class="input-group-text w-50">Longitud en Cm</label>
+                            <input type="number" class="form-control" name="longitud" id="longitud"
+                                value="{{producto.longitud}}">
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

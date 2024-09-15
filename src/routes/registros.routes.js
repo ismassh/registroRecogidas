@@ -37,7 +37,7 @@ router.post('/add', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-})
+});
 
 router.get('/list', async (req, res) => {
     try {
@@ -48,7 +48,7 @@ router.get('/list', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-})
+});
 
 router.get('/edit/:id', async (req, res) => {
     try {
@@ -60,7 +60,7 @@ router.get('/edit/:id', async (req, res) => {
     catch (err) {
         res.status(500).json({ message: err.message })
     }
-})
+});
 
 router.post('/edit/:id', async (req, res) => {
     try {
@@ -103,6 +103,6 @@ router.get('/delete/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: err.message })
     }
-})
+});
 
 export default router;

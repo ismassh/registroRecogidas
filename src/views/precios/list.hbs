@@ -14,7 +14,7 @@
                         <th>ALTO (Cm)</th>
                         <th>ANCHO (Cm)</th>
                         <th>LONGITUD (Cm)</th>
-                        <th>FECHA CREACION</th>
+                        <th>PVP Min. Amazon</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
@@ -29,13 +29,13 @@
                         <td>{{alto}}</td>
                         <td>{{ancho}}</td>
                         <td>{{longitud}}</td>
-                        <td>{{created_at}}</td>
+                        <td>100</td>
                         <td colspan="2">
                             <div class="d-flex gap-2 justify-content-center">
-                                <a href="/edit/{{id}}" class="btn btn-warning">
+                                <a href="/precios/edit/{{id}}" class="btn btn-warning">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="/delete/{{id}}" class="btn btn-danger">
+                                <a href="/precios/delete/{{id}}" class="btn btn-danger">
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </div>

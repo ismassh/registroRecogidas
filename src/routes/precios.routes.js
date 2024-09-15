@@ -43,4 +43,50 @@ router.get('/precios/list', async (req, res) => {
     }
 });
 
+router.get('/precios/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [producto] = await pool.query('SELECT * FROM productos WHERE id = ?', [id]);
+        const productoEdit = producto[0];
+        res.render('precios/edit', { producto: productoEdit });
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
+
+router.post('/precios/edit/:id', async (req, res) => {
+    try {
+        const { familia, sku, tarifa_ewin, peso, alto, ancho, longitud } = req.body;
+
+        const { id } = req.params;
+
+        const editProducto = {
+            familia,
+            sku,
+            tarifa_ewin,
+            agencia: 'CTT Express', // Agencia es fija
+            peso,
+            alto,
+            ancho,
+            longitud
+        };
+        await pool.query('UPDATE productos SET ? WHERE id = ?', [editProducto, id]);
+        res.redirect('/precios/list');
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
+
+router.get('/precios/delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await pool.query('DELETE FROM productos WHERE id = ?', [id]);
+        res.redirect('/precios/list');
+    } catch (error) {
+        res.status(500).json({ message: err.message })
+    }
+});
+
 export default router;
