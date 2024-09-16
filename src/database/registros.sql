@@ -12,7 +12,8 @@ CREATE TABLE registros(
     fecha_creacion VARCHAR(20),
     motivo VARCHAR(60),
     fecha_recepcion VARCHAR(20), 
-    observaciones VARCHAR(90)
+    observaciones VARCHAR(90),
+    finalizado TINYINT(1)
 );
 
 

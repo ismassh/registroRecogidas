@@ -9,45 +9,28 @@
                         <th>FAMILIA</th>
                         <th>SKU EUROWIN</th>
                         <th>TARIFA EUROWIN</th>
-                        <th>AGENCIA</th>
                         <th>PESO (Kg)</th>
                         <th>ALTO (Cm)</th>
                         <th>ANCHO (Cm)</th>
                         <th>LONGITUD (Cm)</th>
-                        <th>PVP Min. Amazon</th>
-                        <th colspan="2">Acciones</th>
+                        <th>COSTE ENVIO SIN IVA</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each productos}}
-                    <tr class="text-center">
+                    <tr class="text-center text-uppercase">
                         <td>{{familia}}</td>
                         <td>{{sku}}</td>
                         <td>{{tarifa_ewin}}</td>
-                        <td>{{agencia}}</td>
-                        <td>{{peso}}</td>
-                        <td>{{alto}}</td>
-                        <td>{{ancho}}</td>
-                        <td>{{longitud}}</td>
-                        <td>100</td>
-                        <td colspan="2">
-                            <div class="d-flex gap-2 justify-content-center">
-                                <a href="/precios/edit/{{id}}" class="btn btn-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="/precios/delete/{{id}}" class="btn btn-danger">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                            </div>
-                        </td>
+                        <td class="peso">{{peso}}</td>
+                        <td class="alto">{{alto}}</td>
+                        <td class="ancho">{{ancho}}</td>
+                        <td class="longitud">{{longitud}}</td>
+                        <td class="coste-envio"></td>
                     </tr>
                     {{/each}}
                 </tbody>
-                <tfoot class="text-center">
-                    {{!-- <tr class="table-dark">
-                        <td colspan="10">Registro de Productos</td>
-                    </tr> --}}
-                </tfoot>
+                <tfoot class="text-center"></tfoot>
             </table>
         </div>
         {{else}}
@@ -63,3 +46,5 @@
         {{/if}}
     </div>
 </div>
+
+<script src="/js/calculator.js"></script>
