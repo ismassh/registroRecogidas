@@ -1,3 +1,4 @@
+// Objeto con las tarifas de CTT:
 const tarifasCtt = {
     1: 4.07,
     2: 4.43,
@@ -6,16 +7,17 @@ const tarifasCtt = {
     5: 5.01,
     10: 6.23,
     15: 7.52,
-    'adicional': 0.42
+    'adicional': 0.42 // Penalización por kg adicional.
 };
 
-// Función para calcular el costo de envío
+// Función para calcular el costo de envío:
 function calcularPrecioEnvio(pesoReal, alto, ancho, longitud) {
-
     const pesoVolumetrico = ((alto * ancho * longitud) * 167) / 1000000;
+
+    // Seleccionar el peso mayor, entre el real y el volumétrico:
     const pesoMayor = Math.max(pesoReal, pesoVolumetrico);
 
-    console.log(pesoVolumetrico)
+    console.log(`Peso volumétrico: ${pesoVolumetrico.toFixed(2)} kg`);
 
     let costo;
     if (pesoMayor <= 1) costo = tarifasCtt[1];
@@ -30,23 +32,31 @@ function calcularPrecioEnvio(pesoReal, alto, ancho, longitud) {
         costo = tarifasCtt[15] + (pesoExtra * tarifasCtt['adicional']);
     }
 
-    // Aplicar IVA
-    return costo.toFixed(2) + '€';
+    return costo; // Devolver el costo como número.
 }
 
-// Función para actualizar los costos de envío en la tabla
+// Función para actualizar los costos de envío en la tabla:
 function actualizarCostosEnvio() {
     document.querySelectorAll('tbody tr').forEach(row => {
-        const peso = parseFloat(row.querySelector('.peso').innerText);
-        const alto = parseFloat(row.querySelector('.alto').innerText);
-        const ancho = parseFloat(row.querySelector('.ancho').innerText);
-        const longitud = parseFloat(row.querySelector('.longitud').innerText);
+        const peso = parseFloat(row.querySelector('.peso').innerText) || 0;
+        const alto = parseFloat(row.querySelector('.alto').innerText) || 0;
+        const ancho = parseFloat(row.querySelector('.ancho').innerText) || 0;
+        const longitud = parseFloat(row.querySelector('.longitud').innerText) || 0;
 
-        const costeEnvio = calcularPrecioEnvio(peso, alto, ancho, longitud);
-        row.querySelector('.coste-envio').innerText = costeEnvio;
+        const tarifaEurowin = parseFloat(row.querySelector('.tarifa-eurowin').innerText) || 0;
+
+        const costeEnvio = calcularPrecioEnvio(peso, alto, ancho, longitud) || 0;
+        row.querySelector('.coste-envio').innerText = costeEnvio.toFixed(2) + '€';
+
+        // Coste de venta => Coste Eurowin + Coste envío sin IVA:
+        const costeTotal = tarifaEurowin + costeEnvio;
+
+        let celdaCosteTotal = row.querySelector('.coste-total');
+        if (celdaCosteTotal) {
+            celdaCosteTotal.innerText = costeTotal.toFixed(2) + '€';
+        }
     });
 }
 
-// Ejecutar la función cuando la página haya cargado
+// Ejecutar la función cuando la página haya cargado:
 document.addEventListener('DOMContentLoaded', actualizarCostosEnvio);
-

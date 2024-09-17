@@ -14,6 +14,7 @@
                         <th>ANCHO (Cm)</th>
                         <th>LONGITUD (Cm)</th>
                         <th>COSTE ENVIO SIN IVA</th>
+                        <th>COSTE TOTAL SIN IVA</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,12 +22,13 @@
                     <tr class="text-center text-uppercase">
                         <td>{{familia}}</td>
                         <td>{{sku}}</td>
-                        <td>{{tarifa_ewin}}</td>
+                        <td class="tarifa-eurowin">{{tarifa_ewin}}</td>
                         <td class="peso">{{peso}}</td>
                         <td class="alto">{{alto}}</td>
                         <td class="ancho">{{ancho}}</td>
                         <td class="longitud">{{longitud}}</td>
                         <td class="coste-envio"></td>
+                        <td class="coste-total"></td>
                     </tr>
                     {{/each}}
                 </tbody>
