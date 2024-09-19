@@ -13,22 +13,26 @@
                         <th>ALTO (Cm)</th>
                         <th>ANCHO (Cm)</th>
                         <th>LONGITUD (Cm)</th>
+                        <th>ASEGURADO</th>
                         <th>COSTE ENVIO SIN IVA</th>
-                        <th>COSTE TOTAL SIN IVA</th>
+                        <th>TARIFA EW + ENVIO</th>
+                        <th>PVP MIN. AMAZON</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each productos}}
                     <tr class="text-center text-uppercase">
-                        <td>{{familia}}</td>
+                        <td class="familia-amazon">{{familia}}</td>
                         <td>{{sku}}</td>
                         <td class="tarifa-eurowin">{{tarifa_ewin}}</td>
                         <td class="peso">{{peso}}</td>
                         <td class="alto">{{alto}}</td>
                         <td class="ancho">{{ancho}}</td>
                         <td class="longitud">{{longitud}}</td>
+                        <td class="asegurado">{{#if asegurado}} Sí {{else}} No</td> {{/if}}
                         <td class="coste-envio"></td>
                         <td class="coste-total"></td>
+                        <td class="pvpMinAmazon"></td>
                     </tr>
                     {{/each}}
                 </tbody>

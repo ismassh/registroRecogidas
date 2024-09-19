@@ -107,11 +107,7 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get('/finish/:id', async (req, res) => {
     try {
-
-
         const { id } = req.params;
-
-
         await pool.query('UPDATE registros SET finalizado = TRUE WHERE id = ?', [id]);
         res.redirect('/list');
     } catch (error) {

@@ -11,13 +11,14 @@ router.get('/precios/add', (req, res) => {
 // Endpoint para añadir los productos:
 router.post('/precios/add', async (req, res) => {
     try {
-        const { familia, sku, tarifa_ewin, peso, alto, ancho, longitud } = req.body;
+        const { familia, sku, tarifa_ewin, asegurado, peso, alto, ancho, longitud } = req.body;
 
         const nuevoProducto = {
             familia,
             sku,
             tarifa_ewin,
             agencia: 'CTT Express', // Agencia es fija
+            asegurado,
             peso,
             alto,
             ancho,
